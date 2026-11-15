@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T4 | Praça em Ação — Centro de Aracaju / SE (protótipo offline)</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Pular para o conteúdo</a>
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><span class="logo" aria-hidden="true">🌳</span><div>T4 | Praça em Ação<small>Protótipo offline físico-digital • Centro de Aracaju / SE</small></div></div>
+    <div class="row"><span class="badge">Falta de atrativos</span><span class="badge">Praça Fausto Cardoso</span><span class="badge" id="netBadge">● offline-ready</span></div>
+  </div>
+</header>
+<div class="notice" role="note"><div class="wrap"><span aria-hidden="true">⚠️</span><span><b>Ensaio pedagógico.</b> Este protótipo não autoriza ocupação real do espaço público, não instala estruturas e não realiza evento. Custos são <b>didáticos e fictícios</b> (em reais) — não são cotação. Não registre nomes, contatos ou localização exata.</span></div></div>
+
+<nav class="steps" aria-label="Etapas">
+  <div class="wrap">
+    <a href="#inicio" data-v="inicio"><span class="n">1</span>Início</a>
+    <a href="#maquete" data-v="maquete"><span class="n">2</span>Maquete da praça</a>
+    <a href="#atividade" data-v="atividade"><span class="n">3</span>Atividade e orçamento</a>
+    <a href="#checklist" data-v="checklist"><span class="n">4</span>Checklist, propostas e comparação</a>
+    <a href="#validacao" data-v="validacao"><span class="n">✓</span>Teste com participantes</a>
+    <a href="#dados" data-v="dados"><span class="n">{ }</span>Dados</a>
+  </div>
+</nav>
+
+<main class="wrap" id="main" tabindex="-1">
+
+<!-- TELA 1: INÍCIO -->
+<section class="view" id="v-inicio">
+  <div class="hero">
+    <div>
+      <h1>Transforme o Centro de Aracaju em convite para conviver</h1>
+      <p class="lead">Escolha uma das três atividades demonstrativas para ativar a Praça Fausto Cardoso, a Olímpio Campos e os calçadões do Centro. Veja onde ela fica na maquete, consulte componentes reutilizáveis e custo didático, e marque os cuidados que precisam ser confirmados antes de qualquer teste no local.</p>
+      <a class="btn primary" href="#maquete">Começar pela maquete →</a>
+    </div>
+    <svg class="hero-art" viewBox="0 0 320 250" aria-hidden="true" focusable="false">
+      <rect width="320" height="250" fill="#d9eff8"/>
+      <circle cx="258" cy="60" r="26" fill="#f6c445" stroke="#1d2a23" stroke-width="2.5"/>
+      <g stroke="#f6c445" stroke-width="5" stroke-linecap="round"><path d="M258 18v8M258 94v8M216 60h8M292 60h8M228 30l6 6M282 84l6 6M288 30l-6 6M234 84l-6 6"/></g>
+      <path d="M0 190 Q80 150 160 180 T320 170 V250 H0Z" fill="#9bd1a5"/>
+      <path d="M0 218 Q100 192 200 214 T320 206 V250 H0Z" fill="#6fb98a"/>
+      <path d="M8 26 Q80 62 152 26" stroke="#1d2a23" stroke-width="2.5" fill="none"/>
+      <path d="M24 36h14l-7 16z" fill="#e2634f"/><path d="M56 47h14l-7 16z" fill="#f6c445"/><path d="M88 52h14l-7 16z" fill="#1f7a4d"/><path d="M120 47h14l-7 16z" fill="#2b7fa8"/>
+      <rect x="70" y="122" width="16" height="70" rx="6" fill="#8b5e34" stroke="#1d2a23" stroke-width="2.5"/>
+      <circle cx="78" cy="100" r="32" fill="#2e8b57" stroke="#1d2a23" stroke-width="2.5"/>
+      <circle cx="52" cy="118" r="22" fill="#3fa56a" stroke="#1d2a23" stroke-width="2.5"/>
+      <circle cx="104" cy="118" r="22" fill="#3fa56a" stroke="#1d2a23" stroke-width="2.5"/>
+      <circle cx="78" cy="100" r="30" fill="#2e8b57"/>
+      <rect x="170" y="160" width="74" height="9" rx="4" fill="#8b5e34" stroke="#1d2a23" stroke-width="2"/>
+      <rect x="170" y="178" width="74" height="10" rx="4" fill="#8b5e34" stroke="#1d2a23" stroke-width="2"/>
+      <rect x="178" y="188" width="7" height="20" fill="#1d2a23"/><rect x="229" y="188" width="7" height="20" fill="#1d2a23"/>
+      <rect x="258" y="198" width="42" height="11" rx="3" fill="#e2634f" stroke="#1d2a23" stroke-width="2"/>
+      <rect x="263" y="187" width="34" height="11" rx="3" fill="#f6c445" stroke="#1d2a23" stroke-width="2"/>
+    </svg>
+  </div>
+  <h2 class="sec-title">Escolha uma atividade</h2>
+  <div class="grid3" id="actCards"></div>
+  <div class="how">
+    <div><b>1 • Maquete</b>Escolha uma das 3 zonas da praça.</div>
+    <div><b>2 • Atividade</b>Compare cordel, jogos de mesa ou mural.</div>
+    <div><b>3 • Orçamento</b>Veja até 6 componentes e o total.</div>
+    <div><b>4 • Checklist</b>Marque cuidados, salve e compare propostas.</div>
+  </div>
+  <p class="fine" style="margin:0">Funciona sem internet. Os dados ficam só neste navegador.</p>
+</section>
+
+<!-- TELA 2: MAQUETE -->
+<section class="view" id="v-maquete">
+  <div class="row"><div><h2>🗺️ Maquete da praça — Centro de Aracaju</h2><p class="fine" style="margin:0">Clique numa zona ou num marcador de atividade. Use Tab + Enter pelo teclado.</p></div><span class="spacer"></span><span class="chip" id="maqSel">Nenhuma zona selecionada</span></div>
+  <div class="grid2" style="margin-top:12px">
+    <div class="card maq">
+      <svg viewBox="0 0 600 400" role="group" aria-label="Maquete digital da praça com 3 zonas" id="maqSvg">
+        <!-- área da praça -->
+        <rect x="20" y="16" width="560" height="70" rx="8" fill="#dccfb4" stroke="#a8977a"/>
+        <text x="300" y="47" text-anchor="middle" font-size="16" font-weight="700" fill="#4a3a20">ÁREA DA PRAÇA / CENTRO DE ARACAJU (cenário de teste)</text>
+        <text x="300" y="68" text-anchor="middle" font-size="12" fill="#5a4a33">Praça Fausto Cardoso • Olímpio Campos • calçadões</text>
+        <!-- acesso / rampa -->
+        <rect x="280" y="86" width="40" height="14" fill="#b9a787"/>
+        <text x="328" y="114" font-size="11" fill="#4b5a52">↑ acesso com rampa</text>
+        <!-- caminhos -->
+        <path d="M300 100 L300 390" stroke="#d6cbb7" stroke-width="22" fill="none"/>
+        <path d="M60 250 L540 250" stroke="#d6cbb7" stroke-width="16" fill="none"/>
+        <g id="zonesG"></g>
+        <g id="pinsG"></g>
+        <text x="20" y="394" font-size="10.5" fill="#4b5a52">Esquema ilustrativo, sem medidas reais • sem escala</text>
+      </svg>
+      <div class="legend" id="legend"></div>
+      <p class="src-note fine"><b>Sobre os nomes de locais:</b> Praça Fausto Cardoso, Olímpio Campos e os calçadões servem só de ambientação. Nenhuma foto, medida ou dado real foi usado. Referências reais só entram depois de observação autorizada, com a fonte registrada.</p>
+    </div>
+    <div class="card" id="zoneInfo" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- TELA 3: ATIVIDADE E ORÇAMENTO -->
+<section class="view" id="v-atividade">
+  <div class="row"><h2 style="margin:0">🧺 Atividade e orçamento didático</h2><span class="spacer"></span>
+    <div class="row" role="tablist" aria-label="Escolher atividade" id="actTabs"></div></div>
+  <div class="grid2" style="margin-top:14px">
+    <div class="card">
+      <div id="actHead"></div>
+      <table aria-describedby="custoNota">
+        <thead><tr><th>Usar</th><th>Componente</th><th class="num">Qtd.</th><th class="num">Unit. didático</th><th class="num">Subtotal</th><th>Origem</th></tr></thead>
+        <tbody id="compBody"></tbody>
+      </table>
+      <div class="total"><span>Total didático da atividade<br><span class="fine" id="custoNota">Valores fictícios em reais para aprendizagem — não é cotação.</span></span><strong id="totalVal">R$ 0,00</strong></div>
+    </div>
+    <div class="card">
+      <h3>Montar proposta de teste</h3>
+      <label for="propNome" class="fine">Nome da proposta (sem dados pessoais)</label>
+      <input type="text" id="propNome" maxlength="60" placeholder="Ex.: Cordel à sombra das amendoeiras">
+      <div class="fine" style="margin-top:10px">Zona relacionada</div>
+      <div id="propZona" style="font-weight:700"></div>
+      <div class="fine" style="margin-top:10px">Componentes selecionados: <b id="propCount">0</b> de no máx. 6</div>
+      <div class="row" style="margin-top:14px">
+        <button class="btn primary" id="btnToChecklist">Ir para o checklist →</button>
+        <button class="btn ghost" id="btnReset">Restaurar padrão</button>
+      </div>
+      <div class="alert err" id="actErr" role="alert"></div>
+      <hr style="border:0;border-top:1px solid var(--line);margin:16px 0">
+      <h3>Comparar as 3 atividades</h3>
+      <table><thead><tr><th>Atividade</th><th>Zona</th><th class="num">Duração</th><th class="num">Total</th></tr></thead><tbody id="cmpBody"></tbody></table>
+    </div>
+  </div>
+</section>
+
+<!-- TELA 4: CHECKLIST, PROPOSTAS E COMPARAÇÃO -->
+<section class="view" id="v-checklist">
+  <div class="row"><h2 style="margin:0">✅ Checklist e proposta</h2><span class="spacer"></span><span class="chip blue" id="clAct"></span></div>
+  <div class="grid2" style="margin-top:14px">
+    <div class="card">
+      <h3>Cuidados a confirmar antes de testar no local</h3>
+      <div class="progress" aria-hidden="true"><i id="clBar"></i></div>
+      <div class="fine" id="clProg" style="margin-bottom:12px"></div>
+      <div id="clList"></div>
+      <label for="obs" class="fine">Observação (opcional, sem nome, contato ou localização exata)</label>
+      <textarea id="obs" rows="3" maxlength="280" placeholder="Ex.: confirmar com o órgão responsável se o calçadão fica livre no fim da tarde."></textarea>
+      <div class="alert warn" id="obsWarn"></div>
+      <div class="row" style="margin-top:12px">
+        <button class="btn primary" id="btnSave">💾 Salvar proposta</button>
+        <span class="fine">Salva no localStorage deste navegador.</span>
+      </div>
+      <div class="alert" id="saveMsg" role="status"></div>
+    </div>
+    <div class="card">
+      <div class="row"><h3 style="margin:0">Resumo para a demo</h3><span class="spacer"></span><button class="btn ghost" id="btnCopy" title="Copiar resumo">Copiar</button></div>
+      <div id="summary" style="margin-top:10px"></div>
+      <hr style="border:0;border-top:1px solid var(--line);margin:16px 0">
+      <div class="row"><h3 style="margin:0">Propostas salvas</h3><span class="spacer"></span><button class="btn danger" id="btnClearAll">Limpar todas</button></div>
+      <div class="saved-list" id="savedList" style="margin-top:10px"></div>
+    </div>
+  </div>
+
+  <!-- NOVO: Comparar propostas salvas -->
+  <div class="card cmp-card" id="cmpCard" style="margin-top:24px">
+    <div class="row"><h3 style="margin:0">⚖️ Comparar propostas salvas</h3><span class="spacer"></span><button class="btn ghost" id="cmpLast">Comparar as 2 mais recentes</button></div>
+    <p class="fine" style="margin:6px 0 0">Escolha duas propostas salvas neste navegador para ver nome, atividade, zona, total didático e cuidados confirmados lado a lado.</p>
+    <div class="cmp-pick">
+      <div><label for="cmpA">Proposta A</label><select id="cmpA"></select></div>
+      <div><label for="cmpB">Proposta B</label><select id="cmpB"></select></div>
+    </div>
+    <div id="cmpResult" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- VALIDAÇÃO -->
+<section class="view" id="v-validacao">
+  <h2>🙋 Teste com participantes voluntários</h2>
+  <p class="lead" style="font-size:15px">Meta: <b>4 de 5</b> participantes encontram uma atividade, consultam o custo didático e explicam o próximo cuidado de autorização <b>em até 3 minutos</b>. Registre apenas tarefa concluída, dúvida e comentário — sem nome, contato ou outro dado pessoal. Não é estudo científico.</p>
+  <div class="grid2">
+    <div class="card">
+      <div class="row"><div class="timer" id="timer">03:00</div><span class="spacer"></span>
+        <button class="btn primary" id="tStart">▶ Iniciar</button><button class="btn ghost" id="tStop">⏸ Parar</button><button class="btn ghost" id="tReset" aria-label="Reiniciar cronômetro">↺</button></div>
+      <div class="fine" style="margin-top:4px">Cronômetro regressivo de 3 minutos por participante.</div>
+      <div style="margin-top:12px" id="vtRows"></div>
+    </div>
+    <div class="card">
+      <h3>Resultado</h3>
+      <div class="kpi"><div><span class="fine">Concluíram as 3 tarefas</span><b id="kOk">0/5</b></div><div><span class="fine">Dentro de 3 min</span><b id="kTime">0/5</b></div></div>
+      <div class="alert show" id="kMsg" style="margin-top:12px"></div>
+      <h3 style="margin-top:16px">Roteiro da demonstração</h3>
+      <ol style="padding-left:18px;margin:0;font-size:14px">
+        <li>Apresentar a maquete da praça e escolher uma zona.</li>
+        <li>Selecionar uma atividade, mostrar componentes reutilizáveis e custo didático fictício.</li>
+        <li>Marcar dois cuidados no checklist, salvar duas propostas e compará-las lado a lado.</li>
+        <li>Explicar que o ensaio é offline, pedagógico e não autoriza ocupação real do espaço público.</li>
+      </ol>
+      <p class="fine" style="margin-top:12px">Pessoas com deficiência podem participar voluntariamente; não simule deficiência com vendas ou encenações. Testes no espaço público exigem autorização do órgão responsável.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DADOS -->
+<section class="view" id="v-dados">
+  <h2>🧩 Modelo de dados (JSON local)</h2>
+  <p class="lead" style="font-size:15px">Dados fictícios com relações verificáveis por identificadores (arquivo <code>data.js</code>). O campo <code>status</code> do checklist acompanha o que você marca (guardado no localStorage deste navegador). Campos com sufixo <code>_id</code> apontam para outra entidade. Caminho de evolução: mesmas tabelas em SQLite ou API opcional.</p>
+  <div class="card" style="margin-bottom:14px"><h3>Verificação de integridade</h3><div id="integrity"></div></div>
+  <div class="grid2">
+    <div class="card"><div class="row"><h3 style="margin:0">Base (somente leitura)</h3><span class="spacer"></span><button class="btn ghost" id="btnCopyJson">Copiar JSON</button></div><pre class="json" id="jsonBase" tabindex="0"></pre></div>
+    <div class="card"><h3>Esquema SQLite equivalente</h3><pre class="json" id="sqlSchema" tabindex="0"></pre></div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">Praça em Ação • Protótipo pedagógico offline (HTML, CSS, JS, JSON + localStorage) • Revitalização e ativação de espaços públicos — Centro de Aracaju / SE (Praça Fausto Cardoso, Olímpio Campos e calçadões) • Versão do protótipo <span id="ver"></span></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- Ordem importa: data.js define DB/VERSION; app.js usa DB -->
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
