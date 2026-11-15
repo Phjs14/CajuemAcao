@@ -2,7 +2,17 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Protótipo offline para ativar espaços públicos no Centro de Aracaju / SE: maquete, atividades, orçamento didático, checklist e comparação de propostas.">
+<meta name="theme-color" content="#1f7a4d">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-64.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Caju em Ação">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>Coders da Peste A | Caju em Ação — Centro de Aracaju / SE (protótipo offline)</title>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -11,7 +21,7 @@
 <header class="top">
   <div class="wrap">
     <div class="brand"><span class="logo" aria-hidden="true">🌳</span><div>Coders da Peste A | Caju em Ação<small>Protótipo offline físico-digital • Centro de Aracaju / SE</small></div></div>
-    <div class="row"><span class="badge">Falta de atrativos</span><span class="badge">Praça Fausto Cardoso</span><span class="badge" id="netBadge">● offline-ready</span></div>
+    <div class="row"><button class="btn ghost install-btn" id="btnInstall" hidden>📲 Instalar app</button><span class="badge">Falta de atrativos</span><span class="badge">Praça Fausto Cardoso</span><span class="badge" id="netBadge">● offline-ready</span></div>
   </div>
 </header>
 <div class="notice" role="note"><div class="wrap"><span aria-hidden="true">⚠️</span><span><b>Ensaio pedagógico.</b> Este protótipo não autoriza ocupação real do espaço público, não instala estruturas e não realiza evento. Custos são <b>didáticos e fictícios</b> (em reais) — não são cotação. Não registre nomes, contatos ou localização exata.</span></div></div>
@@ -211,5 +221,6 @@
 <!-- Ordem importa: data.js define DB/VERSION; app.js usa DB -->
 <script src="data.js"></script>
 <script src="app.js"></script>
+<script src="pwa.js"></script>
 </body>
 </html>

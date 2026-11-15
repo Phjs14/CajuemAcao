@@ -1,0 +1,29 @@
+{
+  "id": "./",
+  "name": "Coders da Peste A | Caju em Ação",
+  "short_name": "Caju em Ação",
+  "description": "Protótipo offline para ativar espaços públicos no Centro de Aracaju / SE: maquete da praça, atividades, orçamento didático, checklist e comparação de propostas.",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#eef6e8",
+  "theme_color": "#1f7a4d",
+  "categories": ["education", "productivity"],
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "shortcuts": [
+    { "name": "Maquete da praça", "short_name": "Maquete", "url": "./index.html#maquete", "icons": [{ "src": "icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "Checklist e comparação", "short_name": "Comparar", "url": "./index.html#checklist", "icons": [{ "src": "icon-192.png", "sizes": "192x192", "type": "image/png" }] }
+  ],
+  "screenshots": [
+    { "src": "screenshot-wide.png", "sizes": "1280x720", "type": "image/png", "form_factor": "wide", "label": "Início com as três atividades" },
+    { "src": "screenshot-narrow.png", "sizes": "540x960", "type": "image/png", "form_factor": "narrow", "label": "Maquete da praça no celular" }
+  ]
+}

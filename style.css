@@ -191,3 +191,13 @@ footer{border-top:2px dashed #a9c3b0;padding:20px 0 26px;color:var(--muted);font
 
 /* Nota sobre nomes reais de locais (maquete) */
 .src-note{margin:14px 0 0;padding:10px 14px;background:var(--sun-l);border:2px dashed var(--edge);border-radius:18px;color:#5c3d0a}
+
+/* ---------- PWA ---------- */
+[hidden]{display:none!important}
+.install-btn{padding:5px 14px;font-size:13px;box-shadow:0 3px 0 var(--edge)}
+.update-bar{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:30;display:flex;gap:12px;align-items:center;background:#fff;border:2.5px solid var(--edge);border-radius:999px;padding:8px 10px 8px 18px;box-shadow:var(--pop);font-weight:700;font-size:14px;max-width:calc(100vw - 24px)}
+.update-bar .btn{padding:6px 14px;font-size:13px}
+/* Telas com notch / modo instalado */
+header.top{padding-top:env(safe-area-inset-top)}
+footer{padding-bottom:calc(26px + env(safe-area-inset-bottom))}
+@media (display-mode:standalone){ body{overscroll-behavior-y:none} }
