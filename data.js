@@ -3,7 +3,7 @@
    Base de dados fictícia (JSON local, embutido em JS para
    funcionar offline até abrindo o index.html direto do disco)
    ============================================================ */
-const VERSION = "2.0.0-aracaju";
+const VERSION = "2.1.0-aracaju";
 
 const DB = {
   zonas: [

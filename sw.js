@@ -4,7 +4,7 @@
    resposta cache-first. Para publicar uma nova versão, MUDE o
    número de CACHE_VERSION: o app avisa o usuário e atualiza.
    ============================================================ */
-const CACHE_VERSION = "2.0.0-aracaju-pwa1";
+const CACHE_VERSION = "2.1.0-aracaju-pwa2";
 const CACHE_NAME = "caju-em-acao-" + CACHE_VERSION;
 
 const APP_SHELL = [
@@ -12,7 +12,9 @@ const APP_SHELL = [
   "./index.html",
   "./style.css",
   "./data.js",
+  "./custom.js",
   "./app.js",
+  "./criar.js",
   "./pwa.js",
   "./manifest.webmanifest",
   "./icon.svg",

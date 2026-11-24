@@ -28,12 +28,12 @@
 
 <nav class="steps" aria-label="Etapas">
   <div class="wrap">
-    <a href="#inicio" data-v="inicio"><span class="n">1</span>Início</a>
-    <a href="#maquete" data-v="maquete"><span class="n">2</span>Maquete da praça</a>
-    <a href="#atividade" data-v="atividade"><span class="n">3</span>Atividade e orçamento</a>
-    <a href="#checklist" data-v="checklist"><span class="n">4</span>Checklist, propostas e comparação</a>
-    <a href="#validacao" data-v="validacao"><span class="n">✓</span>Teste com participantes</a>
-    <a href="#dados" data-v="dados"><span class="n">{ }</span>Dados</a>
+    <a href="#inicio" data-v="inicio"><span class="n">1</span><span class="lbl-long">Início</span><span class="lbl-short">Início</span></a>
+    <a href="#maquete" data-v="maquete"><span class="n">2</span><span class="lbl-long">Maquete da praça</span><span class="lbl-short">Maquete</span></a>
+    <a href="#atividade" data-v="atividade"><span class="n">3</span><span class="lbl-long">Atividade e orçamento</span><span class="lbl-short">Atividade</span></a>
+    <a href="#checklist" data-v="checklist"><span class="n">4</span><span class="lbl-long">Checklist, propostas e comparação</span><span class="lbl-short">Checklist</span></a>
+    <a href="#validacao" data-v="validacao"><span class="n">✓</span><span class="lbl-long">Teste com participantes</span><span class="lbl-short">Teste</span></a>
+    <a href="#dados" data-v="dados"><span class="n">{ }</span><span class="lbl-long">Dados</span><span class="lbl-short">Dados</span></a>
   </div>
 </nav>
 
@@ -45,7 +45,7 @@
     <div>
       <h1>Transforme o Centro de Aracaju em convite para conviver</h1>
       <p class="lead">Escolha uma das três atividades demonstrativas para ativar a Praça Fausto Cardoso, a Olímpio Campos e os calçadões do Centro. Veja onde ela fica na maquete, consulte componentes reutilizáveis e custo didático, e marque os cuidados que precisam ser confirmados antes de qualquer teste no local.</p>
-      <a class="btn primary" href="#maquete">Começar pela maquete →</a>
+      <div class="row"><a class="btn primary" href="#maquete">Começar pela maquete →</a><a class="btn ghost" href="#criar">➕ Criar minha atividade</a></div>
     </div>
     <svg class="hero-art" viewBox="0 0 320 250" aria-hidden="true" focusable="false">
       <rect width="320" height="250" fill="#d9eff8"/>
@@ -86,19 +86,22 @@
       <svg viewBox="0 0 600 400" role="group" aria-label="Maquete digital da praça com 3 zonas" id="maqSvg">
         <!-- área da praça -->
         <rect x="20" y="16" width="560" height="70" rx="8" fill="#dccfb4" stroke="#a8977a"/>
-        <text x="300" y="47" text-anchor="middle" font-size="16" font-weight="700" fill="#4a3a20">ÁREA DA PRAÇA / CENTRO DE ARACAJU (cenário de teste)</text>
-        <text x="300" y="68" text-anchor="middle" font-size="12" fill="#5a4a33">Praça Fausto Cardoso • Olímpio Campos • calçadões</text>
+        <text class="t-full" x="300" y="47" text-anchor="middle" font-size="16" font-weight="700" fill="#4a3a20">ÁREA DA PRAÇA / CENTRO DE ARACAJU (cenário de teste)</text>
+        <text class="t-full" x="300" y="68" text-anchor="middle" font-size="12" fill="#5a4a33">Praça Fausto Cardoso • Olímpio Campos • calçadões</text>
+        <text class="t-short" x="300" y="60" text-anchor="middle" font-size="26" font-weight="800" fill="#4a3a20">CENTRO DE ARACAJU</text>
         <!-- acesso / rampa -->
         <rect x="280" y="86" width="40" height="14" fill="#b9a787"/>
-        <text x="328" y="114" font-size="11" fill="#4b5a52">↑ acesso com rampa</text>
+        <text class="t-full" x="328" y="114" font-size="11" fill="#4b5a52">↑ acesso com rampa</text>
+        <text class="t-short" x="328" y="118" font-size="18" fill="#4b5a52">↑ acesso</text>
         <!-- caminhos -->
         <path d="M300 100 L300 390" stroke="#d6cbb7" stroke-width="22" fill="none"/>
         <path d="M60 250 L540 250" stroke="#d6cbb7" stroke-width="16" fill="none"/>
         <g id="zonesG"></g>
         <g id="pinsG"></g>
-        <text x="20" y="394" font-size="10.5" fill="#4b5a52">Esquema ilustrativo, sem medidas reais • sem escala</text>
       </svg>
+      <p class="fine map-cap">Esquema ilustrativo, sem medidas reais • sem escala • cenário de teste</p>
       <div class="legend" id="legend"></div>
+      <ul class="pin-key" id="pinKey" aria-label="Atividades na maquete"></ul>
       <p class="src-note fine"><b>Sobre os nomes de locais:</b> Praça Fausto Cardoso, Olímpio Campos e os calçadões servem só de ambientação. Nenhuma foto, medida ou dado real foi usado. Referências reais só entram depois de observação autorizada, com a fonte registrada.</p>
     </div>
     <div class="card" id="zoneInfo" aria-live="polite"></div>
@@ -112,10 +115,10 @@
   <div class="grid2" style="margin-top:14px">
     <div class="card">
       <div id="actHead"></div>
-      <table aria-describedby="custoNota">
+      <div class="tbl-wrap"><table class="stack" id="compTable" aria-describedby="custoNota">
         <thead><tr><th>Usar</th><th>Componente</th><th class="num">Qtd.</th><th class="num">Unit. didático</th><th class="num">Subtotal</th><th>Origem</th></tr></thead>
         <tbody id="compBody"></tbody>
-      </table>
+      </table></div>
       <div class="total"><span>Total didático da atividade<br><span class="fine" id="custoNota">Valores fictícios em reais para aprendizagem — não é cotação.</span></span><strong id="totalVal">R$ 0,00</strong></div>
     </div>
     <div class="card">
@@ -131,8 +134,8 @@
       </div>
       <div class="alert err" id="actErr" role="alert"></div>
       <hr style="border:0;border-top:1px solid var(--line);margin:16px 0">
-      <h3>Comparar as 3 atividades</h3>
-      <table><thead><tr><th>Atividade</th><th>Zona</th><th class="num">Duração</th><th class="num">Total</th></tr></thead><tbody id="cmpBody"></tbody></table>
+      <h3>Comparar as atividades</h3>
+      <div class="tbl-wrap"><table class="stack" id="cmpTable"><thead><tr><th>Atividade</th><th>Zona</th><th class="num">Duração</th><th class="num">Total</th></tr></thead><tbody id="cmpBody"></tbody></table></div>
     </div>
   </div>
 </section>
@@ -213,14 +216,40 @@
     <div class="card"><h3>Esquema SQLite equivalente</h3><pre class="json" id="sqlSchema" tabindex="0"></pre></div>
   </div>
 </section>
+
+<!-- CRIAR / EDITAR ATIVIDADE PERSONALIZADA -->
+<section class="view" id="v-criar">
+  <div class="row"><h2 id="cfTitle" style="margin:0">➕ Criar minha atividade</h2><span class="spacer"></span><span class="chip" id="cfLimit"></span></div>
+  <p class="lead" style="font-size:15px;margin-top:8px">Monte uma atividade própria para uma das zonas da praça. Ela aparece na maquete, na escolha de atividades e no orçamento didático, e fica salva só neste navegador. Não use nomes de pessoas, telefones ou localização exata.</p>
+  <form id="cfForm" class="card" novalidate autocomplete="off">
+    <div class="form-grid">
+      <div class="f-name"><label for="cfNome">Nome da atividade *</label><input type="text" id="cfNome" maxlength="40" placeholder="Ex.: Roda de Samba de Coco"></div>
+      <div class="f-icon"><label for="cfIcone">Ícone (emoji) *</label><input type="text" id="cfIcone" maxlength="12" value="✨"><div class="emoji-pick" id="cfEmojis" role="group" aria-label="Sugestões de ícone"></div></div>
+      <div class="f-desc"><label for="cfDesc">Descrição</label><textarea id="cfDesc" rows="2" maxlength="160" placeholder="O que acontece nessa atividade e quem participa."></textarea></div>
+      <div class="f-zone"><label for="cfZona">Zona da praça *</label><select id="cfZona"></select><div class="fine" id="cfZonaInfo"></div></div>
+      <div class="f-dur"><label for="cfDur">Duração estimada (min) *</label><input type="number" id="cfDur" min="5" max="240" step="5" inputmode="numeric" value="30"></div>
+      <div class="f-acc"><label for="cfAcc">Requisito de acessibilidade *</label><textarea id="cfAcc" rows="2" maxlength="160" placeholder="Ex.: Espaço livre e plano para cadeira de rodas e material ao alcance de todos."></textarea></div>
+    </div>
+    <h3 style="margin-top:20px">Componentes físicos (1 a 6) *</h3>
+    <p class="fine" style="margin:0 0 12px">Valores fictícios em reais, só para aprendizagem — não é cotação. Priorize materiais reaproveitados.</p>
+    <div id="cfComps"></div>
+    <datalist id="cfOrigens"></datalist>
+    <div class="row" style="margin-top:6px"><button type="button" class="btn ghost" id="cfAddComp">➕ Adicionar componente</button><span class="fine" id="cfCompCount"></span></div>
+    <div class="total"><span>Total didático desta atividade<br><span class="fine">soma de quantidade × custo unitário</span></span><strong id="cfTotal">R$ 0,00</strong></div>
+    <div class="alert err" id="cfErr" role="alert"></div>
+    <div class="row" style="margin-top:16px"><button type="submit" class="btn primary" id="cfSave">💾 Salvar atividade</button><button type="button" class="btn ghost" id="cfCancel">Cancelar</button></div>
+  </form>
+</section>
 </main>
 
 <footer><div class="wrap">Praça em Ação • Protótipo pedagógico offline (HTML, CSS, JS, JSON + localStorage) • Revitalização e ativação de espaços públicos — Centro de Aracaju / SE (Praça Fausto Cardoso, Olímpio Campos e calçadões) • Versão do protótipo <span id="ver"></span></div></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<!-- Ordem importa: data.js define DB/VERSION; app.js usa DB -->
+<!-- Ordem importa: data.js (DB) → custom.js (modelo) → app.js (telas) → criar.js (formulário) → pwa.js -->
 <script src="data.js"></script>
+<script src="custom.js"></script>
 <script src="app.js"></script>
+<script src="criar.js"></script>
 <script src="pwa.js"></script>
 </body>
 </html>
