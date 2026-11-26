@@ -32,7 +32,6 @@
     <a href="#maquete" data-v="maquete"><span class="n">2</span><span class="lbl-long">Maquete da praça</span><span class="lbl-short">Maquete</span></a>
     <a href="#atividade" data-v="atividade"><span class="n">3</span><span class="lbl-long">Atividade e orçamento</span><span class="lbl-short">Atividade</span></a>
     <a href="#checklist" data-v="checklist"><span class="n">4</span><span class="lbl-long">Checklist, propostas e comparação</span><span class="lbl-short">Checklist</span></a>
-    <a href="#validacao" data-v="validacao"><span class="n">✓</span><span class="lbl-long">Teste com participantes</span><span class="lbl-short">Teste</span></a>
     <a href="#dados" data-v="dados"><span class="n">{ }</span><span class="lbl-long">Dados</span><span class="lbl-short">Dados</span></a>
   </div>
 </nav>
@@ -44,7 +43,7 @@
   <div class="hero">
     <div>
       <h1>Transforme o Centro de Aracaju em convite para conviver</h1>
-      <p class="lead">Escolha uma das três atividades demonstrativas para ativar a Praça Fausto Cardoso, a Olímpio Campos e os calçadões do Centro. Veja onde ela fica na maquete, consulte componentes reutilizáveis e custo didático, e marque os cuidados que precisam ser confirmados antes de qualquer teste no local.</p>
+      <p class="lead">Escolha uma das três atividades demonstrativas para ativar a Praça Fausto Cardoso, no Centro de Aracaju. Veja onde ela fica na maquete, consulte componentes reutilizáveis e custo didático, e marque os cuidados que precisam ser confirmados antes de qualquer teste no local.</p>
       <div class="row"><a class="btn primary" href="#maquete">Começar pela maquete →</a><a class="btn ghost" href="#criar">➕ Criar minha atividade</a></div>
     </div>
     <svg class="hero-art" viewBox="0 0 320 250" aria-hidden="true" focusable="false">
@@ -87,7 +86,7 @@
         <!-- área da praça -->
         <rect x="20" y="16" width="560" height="70" rx="8" fill="#dccfb4" stroke="#a8977a"/>
         <text class="t-full" x="300" y="47" text-anchor="middle" font-size="16" font-weight="700" fill="#4a3a20">ÁREA DA PRAÇA / CENTRO DE ARACAJU (cenário de teste)</text>
-        <text class="t-full" x="300" y="68" text-anchor="middle" font-size="12" fill="#5a4a33">Praça Fausto Cardoso • Olímpio Campos • calçadões</text>
+        <text class="t-full" x="300" y="68" text-anchor="middle" font-size="12" fill="#5a4a33">Praça Fausto Cardoso • Centro de Aracaju</text>
         <text class="t-short" x="300" y="60" text-anchor="middle" font-size="26" font-weight="800" fill="#4a3a20">CENTRO DE ARACAJU</text>
         <!-- acesso / rampa -->
         <rect x="280" y="86" width="40" height="14" fill="#b9a787"/>
@@ -102,7 +101,7 @@
       <p class="fine map-cap">Esquema ilustrativo, sem medidas reais • sem escala • cenário de teste</p>
       <div class="legend" id="legend"></div>
       <ul class="pin-key" id="pinKey" aria-label="Atividades na maquete"></ul>
-      <p class="src-note fine"><b>Sobre os nomes de locais:</b> Praça Fausto Cardoso, Olímpio Campos e os calçadões servem só de ambientação. Nenhuma foto, medida ou dado real foi usado. Referências reais só entram depois de observação autorizada, com a fonte registrada.</p>
+      <p class="src-note fine"><b>Sobre os nomes de locais:</b> Praça Fausto Cardoso e o Centro de Aracaju servem só de ambientação. Nenhuma foto, medida ou dado real foi usado. Referências reais só entram depois de observação autorizada, com a fonte registrada.</p>
     </div>
     <div class="card" id="zoneInfo" aria-live="polite"></div>
   </div>
@@ -149,8 +148,19 @@
       <div class="progress" aria-hidden="true"><i id="clBar"></i></div>
       <div class="fine" id="clProg" style="margin-bottom:12px"></div>
       <div id="clList"></div>
+      <div class="contato-publico" style="margin:16px 0;padding:14px 16px;background:var(--blue-l);border:2.5px solid var(--edge);border-radius:20px">
+        <h4 style="margin:0 0 6px;font-family:var(--font-h)">🏛️ Contato do poder público (dados de teste)</h4>
+        <p class="fine" style="margin:0 0 8px">Use estes dados fictícios só no ensaio pedagógico. Confirme o canal oficial da Prefeitura de Aracaju antes de qualquer pedido real.</p>
+        <ul style="margin:0;padding-left:18px;font-size:14px;line-height:1.55">
+          <li><b>Órgão:</b> Secretaria Municipal de Serviços Públicos — Coordenação de Espaços Públicos (fictício)</li>
+          <li><b>Telefone:</b> (79) 3218-4500</li>
+          <li><b>E-mail:</b> espacos.publicos@aracaju.se.gov.br</li>
+          <li><b>Horário de atendimento:</b> seg. a sex., 8h–14h</li>
+          <li><b>Assunto sugerido:</b> Solicitação de uso temporário — Praça Fausto Cardoso (ensaio pedagógico)</li>
+        </ul>
+      </div>
       <label for="obs" class="fine">Observação (opcional, sem nome, contato ou localização exata)</label>
-      <textarea id="obs" rows="3" maxlength="280" placeholder="Ex.: confirmar com o órgão responsável se o calçadão fica livre no fim da tarde."></textarea>
+      <textarea id="obs" rows="3" maxlength="280" placeholder="Ex.: confirmar com o órgão responsável se a área fica livre no fim da tarde."></textarea>
       <div class="alert warn" id="obsWarn"></div>
       <div class="row" style="margin-top:12px">
         <button class="btn primary" id="btnSave">💾 Salvar proposta</button>
@@ -176,33 +186,6 @@
       <div><label for="cmpB">Proposta B</label><select id="cmpB"></select></div>
     </div>
     <div id="cmpResult" aria-live="polite"></div>
-  </div>
-</section>
-
-<!-- VALIDAÇÃO -->
-<section class="view" id="v-validacao">
-  <h2>🙋 Teste com participantes voluntários</h2>
-  <p class="lead" style="font-size:15px">Meta: <b>4 de 5</b> participantes encontram uma atividade, consultam o custo didático e explicam o próximo cuidado de autorização <b>em até 3 minutos</b>. Registre apenas tarefa concluída, dúvida e comentário — sem nome, contato ou outro dado pessoal. Não é estudo científico.</p>
-  <div class="grid2">
-    <div class="card">
-      <div class="row"><div class="timer" id="timer">03:00</div><span class="spacer"></span>
-        <button class="btn primary" id="tStart">▶ Iniciar</button><button class="btn ghost" id="tStop">⏸ Parar</button><button class="btn ghost" id="tReset" aria-label="Reiniciar cronômetro">↺</button></div>
-      <div class="fine" style="margin-top:4px">Cronômetro regressivo de 3 minutos por participante.</div>
-      <div style="margin-top:12px" id="vtRows"></div>
-    </div>
-    <div class="card">
-      <h3>Resultado</h3>
-      <div class="kpi"><div><span class="fine">Concluíram as 3 tarefas</span><b id="kOk">0/5</b></div><div><span class="fine">Dentro de 3 min</span><b id="kTime">0/5</b></div></div>
-      <div class="alert show" id="kMsg" style="margin-top:12px"></div>
-      <h3 style="margin-top:16px">Roteiro da demonstração</h3>
-      <ol style="padding-left:18px;margin:0;font-size:14px">
-        <li>Apresentar a maquete da praça e escolher uma zona.</li>
-        <li>Selecionar uma atividade, mostrar componentes reutilizáveis e custo didático fictício.</li>
-        <li>Marcar dois cuidados no checklist, salvar duas propostas e compará-las lado a lado.</li>
-        <li>Explicar que o ensaio é offline, pedagógico e não autoriza ocupação real do espaço público.</li>
-      </ol>
-      <p class="fine" style="margin-top:12px">Pessoas com deficiência podem participar voluntariamente; não simule deficiência com vendas ou encenações. Testes no espaço público exigem autorização do órgão responsável.</p>
-    </div>
   </div>
 </section>
 
@@ -242,7 +225,7 @@
 </section>
 </main>
 
-<footer><div class="wrap">Praça em Ação • Protótipo pedagógico offline (HTML, CSS, JS, JSON + localStorage) • Revitalização e ativação de espaços públicos — Centro de Aracaju / SE (Praça Fausto Cardoso, Olímpio Campos e calçadões) • Versão do protótipo <span id="ver"></span></div></footer>
+<footer><div class="wrap">Praça em Ação • Protótipo pedagógico offline (HTML, CSS, JS, JSON + localStorage) • Revitalização e ativação de espaços públicos — Centro de Aracaju / SE (Praça Fausto Cardoso) • Versão do protótipo <span id="ver"></span></div></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <!-- Ordem importa: data.js (DB) → custom.js (modelo) → app.js (telas) → criar.js (formulário) → pwa.js -->

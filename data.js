@@ -8,7 +8,7 @@ const VERSION = "2.1.0-aracaju";
 const DB = {
   zonas: [
     {id:"Z1", nome:"Sombra das Amendoeiras", descricao:"Área arborizada e silenciosa, ideal para pausa e leitura.", cor:"var(--z1)", x:40, y:130, w:220, h:105},
-    {id:"Z2", nome:"Calçadão / Pátio Central", descricao:"Área plana de alto fluxo, boa para jogos e convivência.", cor:"var(--z2)", x:330, y:130, w:230, h:105},
+    {id:"Z2", nome:"Pátio Central", descricao:"Área plana de alto fluxo, boa para jogos e convivência.", cor:"var(--z2)", x:330, y:130, w:230, h:105},
     {id:"Z3", nome:"Muro Cultural e Entradas", descricao:"Painel liso perto das entradas, ideal para arte coletiva e exposição.", cor:"var(--z3)", x:40, y:268, w:520, h:100}
   ],
   atividades: [

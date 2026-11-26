@@ -18,8 +18,7 @@ function defaultDraft(actId){
 const S = Object.assign({
   zona:null, atividade:"A1",
   drafts:{}, checks:{}, obs:{}, propostas:[], cmp:{a:"",b:""},
-  custom:[], customSeq:CUSTOM.PRIMEIRO_NUMERO,
-  validacao:Array.from({length:5},()=>({encontrou:false,custo:false,cuidado:false,tempo:"",duvida:""}))
+  custom:[], customSeq:CUSTOM.PRIMEIRO_NUMERO
 }, store.load() || {});
 if(!S.cmp || typeof S.cmp!=="object") S.cmp={a:"",b:""};
 if(!Array.isArray(S.propostas)) S.propostas=[];
@@ -320,38 +319,6 @@ async function copyText(t,label){ try{ await navigator.clipboard.writeText(t); t
 $("#btnCopy").onclick=()=>{ const {a,z,d,t,np,comps}=summaryText();
   copyText(`PRAÇA EM AÇÃO — Centro de Aracaju / SE — Proposta de teste (ensaio pedagógico, não autoriza ocupação real)\nNome: ${d.nome||"(sem nome)"}\nAtividade: ${a.nome} (${a.duracao_min} min)\nZona: ${z.id} ${z.nome}\nComponentes: ${comps.join("; ")||"—"}\nTotal didático fictício: ${brl(t.tot)}\nPróximo cuidado: ${np?np.categoria+" — "+np.item:"todos confirmados"}\n${(S.obs[a.id]||"").trim()?"Obs.: "+S.obs[a.id]:""}`,"Resumo"); };
 
-/* ============ TESTE COM PARTICIPANTES ============ */
-let tLeft=180, tH=null;
-function drawTimer(){ const m=Math.floor(Math.abs(tLeft)/60), s=Math.abs(tLeft)%60; $("#timer").textContent=(tLeft<0?"-":"")+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0"); $("#timer").classList.toggle("over",tLeft<0); }
-$("#tStart").onclick=()=>{ if(tH) return; tH=setInterval(()=>{tLeft--; drawTimer();},1000); };
-$("#tStop").onclick=()=>{ clearInterval(tH); tH=null; };
-$("#tReset").onclick=()=>{ clearInterval(tH); tH=null; tLeft=180; drawTimer(); };
-function renderValidacao(){
-  $("#vtRows").innerHTML = S.validacao.map((v,i)=>`<div class="vt-row">
-    <b class="vt-p">P${i+1}</b>
-    <label><input type="checkbox" data-v="${i}" data-k="encontrou" ${v.encontrou?'checked':''}>Encontrou atividade</label>
-    <label><input type="checkbox" data-v="${i}" data-k="custo" ${v.custo?'checked':''}>Consultou custo</label>
-    <label><input type="checkbox" data-v="${i}" data-k="cuidado" ${v.cuidado?'checked':''}>Explicou cuidado</label>
-    <label class="vt-time">⏱ <input type="text" data-v="${i}" data-k="tempo" value="${esc(v.tempo)}" placeholder="m:ss" aria-label="Tempo do participante ${i+1}"></label>
-    <div class="vt-note"><input type="text" data-v="${i}" data-k="duvida" value="${esc(v.duvida)}" maxlength="140" placeholder="Dúvida ou comentário (sem dados pessoais)" aria-label="Dúvida ou comentário do participante ${i+1}"></div>
-  </div>`).join("") + `<div class="row" style="margin-top:10px"><button type="button" class="btn ghost" id="vtFill">Usar tempo do cronômetro no próximo P vazio</button><button type="button" class="btn danger" id="vtClear">Zerar registros</button></div>`;
-  document.querySelectorAll("#vtRows [data-v]").forEach(el=>{
-    const ev = el.type==="checkbox"?"change":"input";
-    el.addEventListener(ev,()=>{ const v=S.validacao[+el.dataset.v]; v[el.dataset.k]= el.type==="checkbox"?el.checked:el.value; persist(); kpis(); });
-  });
-  $("#vtFill").onclick=()=>{ const used=180-tLeft; const i=S.validacao.findIndex(v=>!v.tempo); if(i<0){toast("Todos os P já têm tempo");return;} S.validacao[i].tempo=`${Math.floor(used/60)}:${String(used%60).padStart(2,"0")}`; persist(); renderValidacao(); };
-  $("#vtClear").onclick=()=>{ S.validacao=Array.from({length:5},()=>({encontrou:false,custo:false,cuidado:false,tempo:"",duvida:""})); persist(); renderValidacao(); };
-  kpis();
-}
-function secs(t){ const m=/^(\d+):(\d{1,2})$/.exec((t||"").trim()); return m? (+m[1])*60+(+m[2]) : null; }
-function kpis(){
-  const ok=S.validacao.filter(v=>v.encontrou&&v.custo&&v.cuidado).length;
-  const tm=S.validacao.filter(v=>v.encontrou&&v.custo&&v.cuidado&&secs(v.tempo)!==null&&secs(v.tempo)<=180).length;
-  $("#kOk").textContent=ok+"/5"; $("#kTime").textContent=tm+"/5";
-  const m=$("#kMsg"); if(tm>=4){ m.className="alert ok show"; m.textContent="🎯 Meta atingida: pelo menos 4 de 5 concluíram em até 3 minutos."; }
-  else { m.className="alert warn show"; m.textContent=`Faltam ${4-tm} participante(s) concluindo em até 3 min para atingir a meta.`; }
-}
-
 /* ============ DADOS ============ */
 function renderDados(){
   const base={atividades:DB.atividades.map(({px,py,cor,icone,tint,...r})=>r), componentes:DB.componentes, zonas:DB.zonas.map(({x,y,w,h,cor,...r})=>r), checklist:DB.checklist.slice(0,8).concat([{"...":`+${DB.checklist.length-8} itens (8 por atividade)`}])};
@@ -421,7 +388,7 @@ WHERE p.id IN (:proposta_a, :proposta_b);`;
 }
 
 /* ============ ROTEAMENTO (hash) E INICIALIZAÇÃO ============ */
-const VIEWS=["inicio","maquete","atividade","checklist","validacao","dados","criar"];
+const VIEWS=["inicio","maquete","atividade","checklist","dados","criar"];
 function route(){
   const h=(location.hash||"#inicio").slice(1); const v=VIEWS.includes(h)?h:"inicio";
   VIEWS.forEach(x=>$("#v-"+x).classList.toggle("active",x===v));
@@ -435,4 +402,4 @@ window.addEventListener("hashchange",route);
 $("#ver").textContent=VERSION;
 function net(){ $("#netBadge").textContent = navigator.onLine ? "● online (funciona offline)" : "● offline"; }
 window.addEventListener("online",net); window.addEventListener("offline",net); net();
-renderAll(); renderValidacao(); renderDados(); drawTimer(); route();
+renderAll(); renderDados(); route();
